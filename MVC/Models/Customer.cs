@@ -22,4 +22,4 @@ namespace MVC.Models
             return this.CustomerName + "_" + this.Address;
         }
     }
-}
+} 

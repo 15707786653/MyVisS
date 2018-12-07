@@ -17,7 +17,7 @@ namespace MVC.Controllers
         public Customer getCustomer()
         {
             Customer ct = new Customer();
-            ct.CustomerName = "abc";
+            ct.CustomerName = "abc"; 
             ct.Address = "def";
             return ct;
             
