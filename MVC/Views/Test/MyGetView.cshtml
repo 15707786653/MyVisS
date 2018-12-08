@@ -1,6 +1,7 @@
-﻿
+﻿@using MVC.Models;
 @{
     Layout = null;
+    Employee emp = (Employee)ViewData["EmpKey"];
 }
 
 <!DOCTYPE html>
@@ -11,8 +12,13 @@
     <title>MyGetView</title>
 </head>
 <body>
+    <h1>@emp.Name,@((string)ViewData["greeting"])</h1>
+    <hr />
     <div> 
-        msysada
+        <h1>员工信息</h1>
+        <p>姓名 @emp.Name</p>
+        <p>工资 @emp.Salary</p>
+
     </div>
 </body>
 </html>
