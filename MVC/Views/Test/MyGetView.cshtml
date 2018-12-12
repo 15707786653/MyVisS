@@ -1,7 +1,12 @@
 ﻿@using MVC.Models;
+@*@model Employee*@
+@using MVC.VieswModels;
+@*@model EmployeeViewModel*@
+@model EmCu
 @{
     Layout = null;
-    Employee emp = (Employee)ViewData["EmpKey"];
+    //Employee emp = (Employee)ViewData["EmpKey"];
+    //Employee emp = ViewBag.Employee;
 }
 
 <!DOCTYPE html>
@@ -12,13 +17,29 @@
     <title>MyGetView</title>
 </head>
 <body>
-    <h1>@emp.Name,@((string)ViewData["greeting"])</h1>
-    <hr />
+    
+    
     <div> 
-        <h1>员工信息</h1>
-        <p>姓名 @emp.Name</p>
-        <p>工资 @emp.Salary</p>
+        @*@{
+            //Employee emp = (Employee)ViewData["Employee"];
+            Customer cus = (Customer)ViewData["Customer"];
+            EmCu emcu = (EmCu)ViewData["EmCu"];
+        }
 
+        <h1>@Model.UserName,@((string)ViewData["greeting"])</h1>
+        <hr />
+        <h2>员工信息</h2>
+        <p>姓名：@Model.EmployeeName</p>
+        <p>工资：@Model.Salary</p>
+        <p>级别：@Model.SalaryGrade</p>
+
+        <h2>客户信息</h2>
+        <p>姓名：@cus.Address</p>
+        <p>地点：@cus.CustomerName</p>*@
+        
+        <h1>信息</h1>
+        <p>姓名：@Model.em.Name</p>
+        <p>工资：@Model.em.Salary</p>
     </div>
 </body>
 </html>
