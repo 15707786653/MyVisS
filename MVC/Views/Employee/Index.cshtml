@@ -13,10 +13,19 @@
 </head>
 <body>
     <h2>@Model.UserName,@Model.Greeting</h2>
+    <p><a href="/Employee/AddNew">新增</a></p>
+    <hr />
     <div>
-
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>工资</th>
+                <th>级别</th>
+            </tr>
+        </table>
         @foreach (var item in Model.EmployeeViewList)
         {
+            
             <li>@item.EmployeeName,@item.Salary,@item.SalaryGrade</li>
         }
     </div>

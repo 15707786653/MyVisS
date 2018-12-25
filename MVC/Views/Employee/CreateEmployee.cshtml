@@ -1,0 +1,24 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div> 
+        <form action="/Employee/SaveEmployee"method="post">
+            姓名：<input type="text" id="TxtLName" name="Name"value=""/><br />
+            工资：<input  type="text" id="TxtLName" name="Salary"value=""/><br />
+            <input type="submit"name="BtnSubmit"value="保存"/>
+            <input type="reset"name="BtnReset"value="重置"/>
+        </form>
+    </div>
+</body>
+</html>

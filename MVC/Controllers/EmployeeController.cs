@@ -14,14 +14,31 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             EmPloyeeListViewModel employeeModel = new EmPloyeeListViewModel();
+            //获取将处理过的数据列表
+            employeeModel.EmployeeViewList = getEmpVmList();
+            //获取问候语
+            employeeModel.Greeting = getGeeting();
+            //获取用户名
+            employeeModel.UserName = getUserName();
+            //将数据送往视图
+            return View(employeeModel);
+        }
+
+        public ActionResult AddNew()
+        {
+            return View("CreateEmployee");
+        }
+        [NonAction]
+        List<EmployeeViewModel> getEmpVmList()
+        {
             //实例化员工信息业务层
             EmployeeBusinessLayer empBl = new EmployeeBusinessLayer();
-            //员工原始数据加工后的视图数据列表，当前状态是空的
+            //员工原始数据列表，获取来自业务层类的数据
             var listEmp = empBl.GetEmployeeList();
-           
+            //员工原始数据加工后的视图数据列表，当前状态是空的
             var listEmpVm = new List<EmployeeViewModel>();
             //通过循环遍历员工原始数组，将数据一个一个的转换，并加入listEmpVm
-            foreach(var item in listEmp)
+            foreach (var item in listEmp)
             {
                 EmployeeViewModel empVmObj = new EmployeeViewModel();
                 empVmObj.EmployeeName = item.Name;
@@ -36,8 +53,11 @@ namespace MVC.Controllers
                 }
                 listEmpVm.Add(empVmObj);
             }
-            employeeModel.EmployeeViewList = listEmpVm;
-
+            return listEmpVm;
+        }
+        [NonAction]
+        string getGeeting()
+        {
             //获取当前时间
             string greeting;
 
@@ -54,9 +74,12 @@ namespace MVC.Controllers
             {
                 greeting = "早上好";
             }
-            employeeModel.Greeting = greeting;
-            employeeModel.UserName = "Admin";
-            return View(employeeModel);
+            return greeting;
+        }
+        [NonAction]
+        string getUserName()
+        {
+            return "spider-man  蜘蛛侠";
         }
     }
 }
