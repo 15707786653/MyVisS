@@ -23,10 +23,62 @@ namespace MVC.Controllers
             //将数据送往视图
             return View(employeeModel);
         }
-
+        //跳转到新增界面
         public ActionResult AddNew()
         {
             return View("CreateEmployee");
+        }
+        //public ActionResult SaveEmployee(Employee emp)
+        //{
+        //    return new  RedirectResult("Index");
+        //}
+        public ActionResult SaveEmployee(Employee emp,string BtnSubmit)
+        {
+            switch (BtnSubmit)
+            {
+                case "保存":
+                    {
+                        EmployeeBusinessLayer empBal = new EmployeeBusinessLayer();
+                        empBal.SaveEmployees(emp);
+                        return RedirectToAction("Index");
+                    }
+                case "取消":
+                    return RedirectToAction("Index");
+            }
+            return new EmptyResult();
+        }
+        public ActionResult Delete(int id)
+        {
+            EmployeeBusinessLayer emBal = new EmployeeBusinessLayer();
+            emBal.Delete(id);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Select(string name)
+        {
+            EmployeeBusinessLayer emBal = new EmployeeBusinessLayer();
+            var querResult = emBal.Select(name);
+            return View(querResult);
+        }
+        
+
+        //public ActionResult Update()
+        //{
+        //    return View("UpdateInterface");
+        //}
+        public ActionResult Updatepos(int id )
+        {
+            EmployeeBusinessLayer emBal = new EmployeeBusinessLayer();
+            Employee emp = emBal.Query(id);
+            return View(emp);
+
+
+        }
+        [HttpPost]
+        public ActionResult Updatepos(Employee e)
+        {
+            EmployeeBusinessLayer emBal = new EmployeeBusinessLayer();
+            emBal.Updatepos(e);
+            return RedirectToAction("Index");
         }
         [NonAction]
         List<EmployeeViewModel> getEmpVmList()
@@ -41,6 +93,7 @@ namespace MVC.Controllers
             foreach (var item in listEmp)
             {
                 EmployeeViewModel empVmObj = new EmployeeViewModel();
+                empVmObj.EmployeeId=item.Employeeld.ToString();
                 empVmObj.EmployeeName = item.Name;
                 empVmObj.Salary = item.Salary.ToString("C");
                 if (item.Salary > 10000)

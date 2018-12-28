@@ -19,7 +19,7 @@ namespace MVC.Controllers
         {
             Customer ct = new Customer();
             ct.CustomerName = "abc"; 
-            ct.Address = "def";
+            //ct.Address = "def";
             return ct;
             
         }
@@ -79,7 +79,7 @@ namespace MVC.Controllers
             em.Salary = 12345;
             Customer cu = new Customer();
             cu.CustomerName = "石头";
-            cu.Address = "花果山";
+            //cu.Address = "花果山";
             EmCu emcu = new EmCu();
             emcu.em = em;
             emcu.cu = cu;

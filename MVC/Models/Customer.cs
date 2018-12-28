@@ -12,14 +12,15 @@ namespace MVC.Models
             get;
             set;
         }
-        public string Address
-        {
-            get;
-            set;
-        }
+        //public string Address
+        //{
+        //    get;
+        //    set;
+        //}
+        public Address CustomerAddress { get; set; }
         public override string ToString()
         {
-            return this.CustomerName + "_" + this.Address;
+            return this.CustomerName + "_" + this.CustomerAddress;
         }
     }
 } 

@@ -34,7 +34,7 @@ namespace MVC.Controllers
             }
             ViewData["greeting"] = greeting;
             Customer c = new Customer();
-           c.Address= "叶凡";
+           //c.CustomerAddress= "叶凡";
            c.CustomerName = "12138";
             //ViewData["EmpKey"] = emp
             ViewBag.Employee = c;

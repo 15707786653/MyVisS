@@ -26,8 +26,14 @@
         @foreach (var item in Model.EmployeeViewList)
         {
             
-            <li>@item.EmployeeName,@item.Salary,@item.SalaryGrade</li>
+            <li>@item.EmployeeName,@item.Salary,@item.SalaryGrade <a href="/employee/delete/@item.EmployeeId">删除</a>   <a href="/Employee/Updatepos/@item.EmployeeId">更改</a></li>
         }
-    </div>
+        <form action="/Employee/Select" method="post">
+
+                <input type="text" id="TxtLName" name="Name" value="" /><br />
+                <input type="submit" name="BtnSubmit" value="查询" />
+
+        </form>
+</div>
 </body>
 </html>
