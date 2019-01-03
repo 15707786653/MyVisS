@@ -14,8 +14,12 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             EmPloyeeListViewModel employeeModel = new EmPloyeeListViewModel();
+            //实例化员工信息业务层
+            EmployeeBusinessLayer empBl = new EmployeeBusinessLayer();
+            //员工原始数据列表，获取来自业务层类的数据
+            var listEmp = empBl.GetEmployeeList();
             //获取将处理过的数据列表
-            employeeModel.EmployeeViewList = getEmpVmList();
+            employeeModel.EmployeeViewList = getEmpVmList(listEmp);
             //获取问候语
             employeeModel.Greeting = getGeeting();
             //获取用户名
@@ -57,7 +61,14 @@ namespace MVC.Controllers
         {
             EmployeeBusinessLayer emBal = new EmployeeBusinessLayer();
             var querResult = emBal.Select(name);
-            return View(querResult);
+            EmPloyeeListViewModel employeeModel = new EmPloyeeListViewModel();
+            //获取将处理过的数据列表
+            employeeModel.EmployeeViewList = getEmpVmList(querResult.ToList());
+            //获取问候语
+            employeeModel.Greeting = getGeeting();
+            //获取用户名
+            employeeModel.UserName = getUserName();
+            return View("Index",employeeModel);
         }
         
 
@@ -81,12 +92,9 @@ namespace MVC.Controllers
             return RedirectToAction("Index");
         }
         [NonAction]
-        List<EmployeeViewModel> getEmpVmList()
+        List<EmployeeViewModel> getEmpVmList(List<Employee>listEmp)
         {
-            //实例化员工信息业务层
-            EmployeeBusinessLayer empBl = new EmployeeBusinessLayer();
-            //员工原始数据列表，获取来自业务层类的数据
-            var listEmp = empBl.GetEmployeeList();
+
             //员工原始数据加工后的视图数据列表，当前状态是空的
             var listEmpVm = new List<EmployeeViewModel>();
             //通过循环遍历员工原始数组，将数据一个一个的转换，并加入listEmpVm

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testx", "Testx\Testx.csproj", "{F1285B0F-747B-4B13-AB0C-E2B8C625D081}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie", "MvcMovie\MvcMovie.csproj", "{252A0C40-0D82-4884-A461-7EE166C0070B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{10C91EB7-9726-4625-918A-C8878FE5913A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F1285B0F-747B-4B13-AB0C-E2B8C625D081}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1285B0F-747B-4B13-AB0C-E2B8C625D081}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1285B0F-747B-4B13-AB0C-E2B8C625D081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{252A0C40-0D82-4884-A461-7EE166C0070B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252A0C40-0D82-4884-A461-7EE166C0070B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252A0C40-0D82-4884-A461-7EE166C0070B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252A0C40-0D82-4884-A461-7EE166C0070B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C91EB7-9726-4625-918A-C8878FE5913A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C91EB7-9726-4625-918A-C8878FE5913A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C91EB7-9726-4625-918A-C8878FE5913A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C91EB7-9726-4625-918A-C8878FE5913A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

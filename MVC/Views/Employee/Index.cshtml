@@ -26,7 +26,9 @@
         @foreach (var item in Model.EmployeeViewList)
         {
             
-            <li>@item.EmployeeName,@item.Salary,@item.SalaryGrade <a href="/employee/delete/@item.EmployeeId">删除</a>   <a href="/Employee/Updatepos/@item.EmployeeId">更改</a></li>
+            <li>@item.EmployeeName,@item.Salary,@item.SalaryGrade @*<a href="/employee/delete/@item.EmployeeId">删除</a>   <a href="/Employee/Updatepos/@item.EmployeeId">更改</a>*@</li>
+            @Html.ActionLink("删除","Delete",new { id=item.EmployeeId})
+            @Html.ActionLink("编辑", "Updatepos", new { id=item.EmployeeId})
         }
         <form action="/Employee/Select" method="post">
 
