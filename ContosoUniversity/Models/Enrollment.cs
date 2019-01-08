@@ -4,6 +4,7 @@
     {
         A, B, C, D, F
     }
+
     public class Enrollment
     {
         public int EnrollmentID { get; set; }
