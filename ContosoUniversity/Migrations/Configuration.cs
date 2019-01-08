@@ -16,6 +16,7 @@ namespace ContosoUniversity.Migrations
 
         protected override void Seed(ContosoUniversity.DAL.SchoolContext context)
         {
+            //构建学生数据
             var students = new List<Student>
             {
                 new Student { FirstMidName = "Carson",   LastName = "Alexander",
@@ -37,7 +38,7 @@ namespace ContosoUniversity.Migrations
             };
             students.ForEach(s => context.Students.AddOrUpdate(p => p.LastName, s));
             context.SaveChanges();
-
+            //构建课程数据
             var courses = new List<Course>
             {
                 new Course {CourseID = 1050, Title = "Chemistry",      Credits = 3, },
@@ -65,7 +66,7 @@ namespace ContosoUniversity.Migrations
                  },
                  new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Alexander").ID,
-                    CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
+                    CourseID = courses.Single(c => c.T itle == "Macroeconomics" ).CourseID,
                     Grade = Grade.B
                  },
                  new Enrollment {
