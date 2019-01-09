@@ -66,7 +66,7 @@ namespace ContosoUniversity.Migrations
                  },
                  new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Alexander").ID,
-                    CourseID = courses.Single(c => c.T itle == "Macroeconomics" ).CourseID,
+                    CourseID = courses.Single(c => c.Title == "Macroeconomics" ).CourseID,
                     Grade = Grade.B
                  },
                  new Enrollment {
