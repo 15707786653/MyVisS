@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ContosoUniversity.DAL;
 using ContosoUniversity.ViewModels;
 using ContosoUniversity.Webcommon;
+using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Controllers
 {
@@ -14,8 +15,14 @@ namespace ContosoUniversity.Controllers
         private SchoolContext db = new SchoolContext();
         public ActionResult Index()
         {
-            var data = WeatherHelper.GetWeatherByName("柳州");
+            var data = WeatherHelper.GetWeatherByName("河池");
             return View(data);
+        }
+        public JsonResult getWeather(string city)
+        {
+            var data = WeatherHelper.GetWeatherByName(city);
+            var json = Json(data);
+            return json;
         }
 
         public ActionResult About()

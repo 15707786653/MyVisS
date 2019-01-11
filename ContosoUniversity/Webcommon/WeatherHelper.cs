@@ -7,13 +7,14 @@ using System.Net;
 using System.Text;
 using System.Web;
 using Xfrog.Net;
+using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Webcommon
 {
     public static  class WeatherHelper
     {
         static string appkey = "dd086d232a3e2e2047014519b153d565"; //配置您申请的appkey
-        public static JsonObject GetWeatherByName(string city)
+        public static Weather GetWeatherByName(string city)
         {
             string url1 = "http://v.juhe.cn/weather/index";
 
@@ -33,7 +34,7 @@ namespace ContosoUniversity.Webcommon
             {
                 //Debug.WriteLine("成功");
                 //Debug.WriteLine(newObj1);
-                return newObj1;
+                return ConverToWeather(newObj1);
             }
             else
             {
@@ -42,6 +43,19 @@ namespace ContosoUniversity.Webcommon
                 return null;
             }
         }
+
+        public static Weather ConverToWeather(JsonObject jsonObj)
+        {
+            Weather wt = new Models.Weather();
+            wt.City = jsonObj["result"].Object["today"].Object["city"].Value;
+            wt.Temperature= jsonObj["result"].Object["today"].Object["Temperature"].Value;
+            wt.WeatherInfo = jsonObj["result"].Object["today"].Object["Weather"].Value;
+            wt.Wind_strength = jsonObj["result"].Object["today"].Object["dressing_advice"].Value;
+            wt.wind= jsonObj["result"].Object["today"].Object["wind"].Value;
+            wt.week = jsonObj["result"].Object["today"].Object["week"].Value;
+            return wt;
+        }
+
         /// <summary>
         /// Http (GET/POST)
         /// </summary>
